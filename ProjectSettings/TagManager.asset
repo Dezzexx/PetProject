@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Canvas
+  - AudioBehaviour
+  - PlayerAudioSource
+  - EnemyAudioSource
+  - UIAudioSource
+  - EnvironmentAudioSource
+  - MusicManager
+  - CameraPOV
+  - Enemy
+  - Gun
+  - Explosion
+  - FxTemporaire
+  - Ground
+  - FinalOverviewCamera
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - FriendlyBase
+  - Water
+  - UI
+  - Friendly
+  - Enemy
+  - EnemyBase
+  - Plane
+  - GridCell
+  - RideMask
+  - BulletMask
+  - 
+  - NonTarget
+  - Envieronment
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
