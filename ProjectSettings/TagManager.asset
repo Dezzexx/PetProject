@@ -22,19 +22,19 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - FriendlyBase
+  - 
   - Water
   - UI
-  - Friendly
-  - Enemy
-  - EnemyBase
-  - Plane
-  - GridCell
-  - RideMask
-  - BulletMask
+  - Surface
+  - Obstacle
   - 
-  - NonTarget
-  - Envieronment
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

@@ -10,6 +10,8 @@ namespace Client
     {
         readonly EcsSharedInject<GameState> _state;
 
+        private int _unitInitCount = 60;
+
 #region PoolsValueCount
         
 #endregion
@@ -18,9 +20,9 @@ namespace Client
         {
             _state.Value.ActivePools = new AllPools();
 
-            var spawnPoint = new Vector3(0, 0, 1000f);
-            // _state.Value.ActivePools.GridCellPool = new Pool(_state.Value.AllPools.GridCellPool.Prefab, spawnPoint, _gridCellPoolCount, parentName: "GridCellPool");
-            
+            var spawnPoint = new Vector3(0, 0, 500f);
+
+            _state.Value.ActivePools.UnitPool = new Pool(_state.Value.AllPools.UnitPool.Prefab, spawnPoint, _unitInitCount, parentName: "UnitPool");            
         }
     }
 }

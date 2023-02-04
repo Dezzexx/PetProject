@@ -42,7 +42,6 @@ namespace Client
             _loseSystems = new EcsSystems(World, _gameState);
 
             _initSystems
-                // .Add(new LevelControllerInit())
                 .Add(new InputInit())
                 .Add(new InitInterface())
                 .Add(new InitCamera())
@@ -50,6 +49,7 @@ namespace Client
                 .Add(new InitPools())
                 .Add(new VibrationInit())
                 
+                .Add(new UnitsInitSystem())
             ;
 
             _beforePlaySystems               
@@ -67,6 +67,8 @@ namespace Client
                 .Add(new CreditsSystem())
                 
                 .Add(new CreateEffectEventSystem())
+                
+                .Add(new UnitMoveSystem())
 
                 .Add(new WinCheckSystem())
                 .Add(new UnitAnimationSystem())
