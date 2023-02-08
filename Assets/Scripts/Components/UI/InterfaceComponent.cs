@@ -10,6 +10,5 @@ namespace Client
         public LosePanelBehaviourMB LosePanelBehaviour;
         public TutorialPanelBehaviourMB TutorialPanelBehaviour;
         public GeneralPanelBehaviourMB GenaralPanelBehaviourMB;
-        public HealthbarMB HealthbarBehaviour;
     }
 }

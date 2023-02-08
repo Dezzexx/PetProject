@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AllPools
   m_EditorClassIdentifier: 
   UnitPool: {fileID: 11400000, guid: b12abfbd0fed53043b7e5cb7cb79e385, type: 2}
+  DonutPool: {fileID: 11400000, guid: 4c7cf0884df683843bf1ea9fb167f5c0, type: 2}

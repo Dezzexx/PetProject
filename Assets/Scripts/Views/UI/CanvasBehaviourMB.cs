@@ -32,7 +32,6 @@ public class CanvasBehaviourMB : MonoBehaviour
     public GameObject SettingsPanel;
     public GameObject TutorialPanel;
     public GameObject GeneralPanel;
-    public GameObject UpgradePanel;
 
     private int _cinemachinePOVCameraSpeedOff = 0;
     private float _cinemachinePOVCameraSpeedOn = 0.1f;

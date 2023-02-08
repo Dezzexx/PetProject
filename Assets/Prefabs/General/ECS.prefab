@@ -46,33 +46,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gameState:
     GameMode: 0
-    FriendlyMask:
-      serializedVersion: 2
-      m_Bits: 0
-    EnemyMask:
-      serializedVersion: 2
-      m_Bits: 0
-    FriendlyAndEnemyMask:
-      serializedVersion: 2
-      m_Bits: 0
-    IgnoreRaycastMask:
-      serializedVersion: 2
-      m_Bits: 0
-    FriendlyBaseMask:
-      serializedVersion: 2
-      m_Bits: 0
-    GridCellMask:
-      serializedVersion: 2
-      m_Bits: 0
-    RideMask:
-      serializedVersion: 2
-      m_Bits: 0
     Raycaster: {fileID: 0}
     EventSystem: {fileID: 0}
+    DeformableMask:
+      serializedVersion: 2
+      m_Bits: 0
     SoundConfig: {fileID: 0}
     GameConfig: {fileID: 0}
-    PlayerConfig: {fileID: 0}
-    LevelsConfig: {fileID: 0}
+    DeformableObjectsConfig: {fileID: 0}
     AllPools: {fileID: 0}
     ActivePools: {fileID: 0}
     Sounds: 0
@@ -80,39 +61,18 @@ MonoBehaviour:
     Vibration: 0
     PlayerResourceValue: 0
     SceneNumber: 0
-    ShaderMaterialFilling: 
     Tutorial: 0
-    LevelControllerEntity: 0
     InterfaceEntity: 0
     InputEntity: 0
     SoundsEntity: 0
     VibrationEntity: 0
     CameraEntity: 0
-    GridEntity: 0
     LevelProgressIndex: 0
-  FriendlyMask:
+  DeformableMask:
     serializedVersion: 2
-    m_Bits: 64
-  EnemyMask:
-    serializedVersion: 2
-    m_Bits: 128
-  FriendlyAndEnemyMask:
-    serializedVersion: 2
-    m_Bits: 192
-  IgnoreRaycastMask:
-    serializedVersion: 2
-    m_Bits: 4
-  FriendlyBaseMask:
-    serializedVersion: 2
-    m_Bits: 8
-  GridCellMask:
-    serializedVersion: 2
-    m_Bits: 1024
-  RideMask:
-    serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 256
   AllPools: {fileID: 11400000, guid: eb035b01f15eaa444aa696392c0e2106, type: 2}
   SoundConfig: {fileID: 11400000, guid: 92c30ff534048854496fc6f3d58b2ee0, type: 2}
   GameConfig: {fileID: 11400000, guid: ba62ab248be65b542ba82e1799340240, type: 2}
-  PlayerConfig: {fileID: 11400000, guid: 7a49b78088ec0ba42810496c10da4e76, type: 2}
-  LevelsConfig: {fileID: 11400000, guid: 85c8dbe812df96a44a31d95a68b40e8a, type: 2}
+  DeformableObjectsConfig: {fileID: 11400000, guid: 3230374c73e75ec4cbcda1d15a3a869a,
+    type: 2}

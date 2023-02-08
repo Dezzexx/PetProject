@@ -4,10 +4,12 @@ using UnityEngine;
 public class AllPools : ScriptableObject
 {
 #region ObjectPools
+    [Header("ObjectPool")]
     public Pool UnitPool;
+    public Pool DonutPool;
 #endregion
 
-#region EffectPools
+// #region EffectPools
 
-#endregion
+// #endregion
 }

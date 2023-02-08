@@ -15,7 +15,7 @@ namespace Client
         private GameState _gameState;
 
 #region Masks
-        
+        public LayerMask DeformableMask;
 #endregion
 
 #region AllPools
@@ -25,6 +25,7 @@ namespace Client
 #region Configs
         public SoundConfig SoundConfig;
         public GameConfig GameConfig;
+        public DeformableObjectsConfig DeformableObjectsConfig;
 #endregion
 
         void Start () 
@@ -49,6 +50,7 @@ namespace Client
                 .Add(new InitPools())
                 .Add(new VibrationInit())
                 
+                .Add(new DeformableObjectsInit())
                 .Add(new UnitsInitSystem())
             ;
 
@@ -69,6 +71,8 @@ namespace Client
                 .Add(new CreateEffectEventSystem())
                 
                 .Add(new UnitMoveSystem())
+
+                .Add(new DeformMeshSystem())
 
                 .Add(new WinCheckSystem())
                 .Add(new UnitAnimationSystem())

@@ -23,9 +23,14 @@ namespace Client
         public EventSystem EventSystem;
 #endregion
 
+#region Mask
+        public LayerMask DeformableMask;
+#endregion
+
 #region Configs
         public SoundConfig SoundConfig;
         public GameConfig GameConfig;
+        public DeformableObjectsConfig DeformableObjectsConfig;
 #endregion
 
         public AllPools AllPools;
@@ -55,6 +60,9 @@ namespace Client
             AllPools = ecsStartup.AllPools;
             SoundConfig = ecsStartup.SoundConfig;
             GameConfig = ecsStartup.GameConfig;
+            DeformableObjectsConfig = ecsStartup.DeformableObjectsConfig;
+
+            DeformableMask = ecsStartup.DeformableMask; 
 
             Load();
         }
