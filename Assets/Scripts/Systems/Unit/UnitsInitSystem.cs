@@ -14,6 +14,7 @@ namespace Client {
 
         public void Init (EcsSystems systems) {
             var destination = GameObject.FindObjectOfType<UnitDestinationMB>().transform.position;
+            var unitSpawnPointTransform = GameObject.FindObjectOfType<UnitSpawnPointMB>().transform;
 
             for (int i = 0; i <= _state.Value.GameConfig.UnitSpawnCount; i++) {
                 var unitEntity = _world.Value.NewEntity();
@@ -27,9 +28,10 @@ namespace Client {
 
                 ref var viewComp = ref _viewPool.Value.Add(unitEntity);
                 viewComp.Transform = unitMB.transform;
+                viewComp.Transform.rotation = unitSpawnPointTransform.rotation;
                 
-                unitComp.NavMeshAgent.Warp(new Vector3(0, 0.12f, 0));
-                unitComp.NavMeshAgent.SetDestination(new Vector3(0, 0.12f, 0.1f));
+                unitComp.NavMeshAgent.Warp(unitSpawnPointTransform.position);
+                unitComp.NavMeshAgent.SetDestination(destination);
 
                 _isMovingPool.Value.Add(unitEntity);               
             }

@@ -5,7 +5,6 @@ namespace Client
         public CanvasBehaviourMB CanvasBehaviour;
         public SettingsPanelBehaviourMB SettingsPanelBehaviour;
         public InGamePanelBehaviourMB InGamePanelBehaviour;
-        public StorePanelBehaviourMB StorePanelBehaviour;
         public WinPanelBehaviourMB WinPanelBehaviour;
         public LosePanelBehaviourMB LosePanelBehaviour;
         public TutorialPanelBehaviourMB TutorialPanelBehaviour;

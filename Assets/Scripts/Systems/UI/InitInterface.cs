@@ -39,10 +39,6 @@ namespace Client
             losePanelBehaviourMB.Init(_world.Value, _state.Value);
             interfaceComp.LosePanelBehaviour = losePanelBehaviourMB;
 
-            var storePanelBehaviourMB = interfaceComp.CanvasBehaviour.GetComponentInChildren<StorePanelBehaviourMB>();
-            storePanelBehaviourMB.Init(_world.Value, _state.Value);
-            interfaceComp.StorePanelBehaviour = storePanelBehaviourMB;
-
             var tutorialPanelBehaviourMB = interfaceComp.CanvasBehaviour.GetComponentInChildren<TutorialPanelBehaviourMB>();
             tutorialPanelBehaviourMB.Init(_world.Value, _state.Value);
             interfaceComp.TutorialPanelBehaviour = tutorialPanelBehaviourMB;

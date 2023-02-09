@@ -137,11 +137,6 @@ public class RuntimeCircleClipper : MonoBehaviour, IClip
         mesh.MarkDynamic();
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         UpdateTouch();

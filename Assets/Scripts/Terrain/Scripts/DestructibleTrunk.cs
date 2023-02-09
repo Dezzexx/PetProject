@@ -56,6 +56,7 @@ public class DestructibleTrunk : MonoBehaviour, IDestructible
         GameObject faceVisual = new GameObject();
         faceVisual.transform.SetParent(transform);
         faceVisual.transform.localPosition = Vector3.zero;
+        // faceVisual.layer = 7;
         faceVisual.name = "FaceVisual";
 
         faceMesh = new Mesh();
@@ -93,6 +94,7 @@ public class DestructibleTrunk : MonoBehaviour, IDestructible
         GameObject edgeVisual = new GameObject();
         edgeVisual.transform.SetParent(transform);
         edgeVisual.transform.localPosition = Vector3.zero;
+        edgeVisual.layer = 7;
         edgeVisual.name = "EdgeVisual";
 
         edgeMesh = new Mesh();

@@ -28,7 +28,6 @@ public class CanvasBehaviourMB : MonoBehaviour
     public GameObject InGamePanel;
     public GameObject WinPanel;
     public GameObject LosePanel;
-    public GameObject StorePanel;
     public GameObject SettingsPanel;
     public GameObject TutorialPanel;
     public GameObject GeneralPanel;
@@ -72,8 +71,6 @@ public class CanvasBehaviourMB : MonoBehaviour
 
     public void OpenCloseStorePanel()
     {
-        ref var interfaceComponent = ref _interfacePool.Get(_state.InterfaceEntity);
-        interfaceComponent.StorePanelBehaviour.GetHolderStore().gameObject.SetActive(!interfaceComponent.StorePanelBehaviour.GetHolderStore().gameObject.activeSelf);
         GeneralPanel.SetActive(!GeneralPanel.activeSelf);
         InGamePanel.SetActive(!InGamePanel.activeSelf);
     }
@@ -84,7 +81,6 @@ public class CanvasBehaviourMB : MonoBehaviour
         InGamePanel.SetActive(false);
         interfaceComponent.WinPanelBehaviour.GetHolderWin().gameObject.SetActive(false);
         interfaceComponent.LosePanelBehaviour.GetHolderLose().gameObject.SetActive(false);
-        interfaceComponent.StorePanelBehaviour.GetHolderStore().gameObject.SetActive(false);
 
         TutorialPanel.SetActive(false);
         GeneralPanel.SetActive(false);

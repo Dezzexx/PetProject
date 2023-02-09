@@ -50,7 +50,8 @@ namespace Client
                 .Add(new InitPools())
                 .Add(new VibrationInit())
                 
-                .Add(new DeformableObjectsInit())
+                // .Add(new DeformableObjectsInit())
+                .Add(new NavMeshSurfaceInit())
                 .Add(new UnitsInitSystem())
             ;
 
@@ -72,7 +73,9 @@ namespace Client
                 
                 .Add(new UnitMoveSystem())
 
-                .Add(new DeformMeshSystem())
+                // .Add(new DeformMeshSystem())
+                .Add(new TransitionToUpdateSurfaceSystem())
+                .Add(new UpdateNavMeshSurfaceSystem())
 
                 .Add(new WinCheckSystem())
                 .Add(new UnitAnimationSystem())

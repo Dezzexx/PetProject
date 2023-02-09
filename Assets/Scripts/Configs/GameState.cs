@@ -49,6 +49,7 @@ namespace Client
         public int SoundsEntity;          
         public int VibrationEntity;                 
         public int CameraEntity;
+        public int NavMeshSurfaceEntity;
         public const int NULL_ENTITY = -1;
 
 #endregion
