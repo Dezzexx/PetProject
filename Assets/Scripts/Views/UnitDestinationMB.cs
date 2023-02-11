@@ -1,6 +1,10 @@
 using UnityEngine;
+using Client;
 
-public class UnitDestinationMB : MonoBehaviour
-{
-    public Transform UnitDestination;
-}
+namespace Client {
+    public class UnitDestinationMB : MonoBehaviour
+    {
+        public Transform[] UnitDestinations;
+    }
+    public enum Points {First, Two, Three, Four};
+}   

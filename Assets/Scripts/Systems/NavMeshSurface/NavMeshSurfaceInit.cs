@@ -1,6 +1,7 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Client {
     sealed class NavMeshSurfaceInit : IEcsInitSystem {
@@ -11,6 +12,7 @@ namespace Client {
 
         public void Init (EcsSystems systems) {
             var surface = GameObject.FindObjectOfType<NavMeshSurfaceMB>();
+            var destinations = GameObject.FindObjectOfType<UnitDestinationMB>().UnitDestinations;
 
             var surfaceEntity = _world.Value.NewEntity();
             _state.Value.NavMeshSurfaceEntity = surfaceEntity;
@@ -18,6 +20,11 @@ namespace Client {
 
             ref var surfaceComp = ref _navMeshSurfacePool.Value.Add(surfaceEntity);
             surfaceComp.Surface = surface.GetSetSurface;
+            surfaceComp.DestinationPoints = new List<Transform>();
+
+            foreach (var destination in destinations) {
+                surfaceComp.DestinationPoints.Add(destination);
+            }
 
             surfaceComp.Surface.BuildNavMesh();
         }

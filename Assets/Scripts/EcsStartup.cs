@@ -72,6 +72,7 @@ namespace Client
                 .Add(new CreateEffectEventSystem())
                 
                 .Add(new UnitMoveSystem())
+                .Add(new UnitChangePathSystem())
 
                 // .Add(new DeformMeshSystem())
                 .Add(new TransitionToUpdateSurfaceSystem())
@@ -107,6 +108,7 @@ namespace Client
                 .DelHere<ClickEvent>()
                 .DelHere<FailClickEvent>()
                 .DelHere<BuyEvent>()
+                .DelHere<UnitChangePathEvent>()
                 ;
 
             _winSystems

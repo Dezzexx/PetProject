@@ -2,6 +2,7 @@
 using UnityEngine;
 using Vector2f = UnityEngine.Vector2;
 using Vector2i = ClipperLib.IntPoint;
+using UnityEngine.AI;
 
 using int64 = System.Int64;
 
@@ -59,6 +60,10 @@ public class DestructibleTrunk : MonoBehaviour, IDestructible
         // faceVisual.layer = 7;
         faceVisual.name = "FaceVisual";
 
+        // var obstacle = faceVisual.AddComponent<NavMeshObstacle>();
+        // obstacle.size = new Vector3(resolutionX * blockSize, resolutionY * blockSize, 0);
+        // obstacle.center = new Vector3(-faceVisual.transform.position.x, faceVisual.transform.position.y, 0.25f);
+
         faceMesh = new Mesh();
         faceMesh.vertices = new Vector3[]{
             new Vector3(0f, 0f, 0f),
@@ -96,6 +101,9 @@ public class DestructibleTrunk : MonoBehaviour, IDestructible
         edgeVisual.transform.localPosition = Vector3.zero;
         edgeVisual.layer = 7;
         edgeVisual.name = "EdgeVisual";
+        // var obstacle = edgeVisual.AddComponent<NavMeshObstacle>();
+        // obstacle.size = new Vector3(resolutionX * blockSize, resolutionY * blockSize, 3);
+        // obstacle.center = new Vector3(-edgeVisual.transform.position.x, edgeVisual.transform.position.y, 2.5f);
 
         edgeMesh = new Mesh();
         meshFilter = edgeVisual.AddComponent<MeshFilter>();
