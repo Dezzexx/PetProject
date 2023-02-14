@@ -6,5 +6,6 @@ namespace Client {
     struct NavMeshSurfaceComp {
         public NavMeshSurface Surface;
         public List<Transform> DestinationPoints;
+        public List<UnitMB> AllFriendlyUnits;
     }
 }

@@ -1,5 +1,5 @@
 namespace Client {
-    struct UpdatingNavMeshSurface {
+    struct UpdateNavMeshSurfaceEvent {
         // add your data here.
     }
 }

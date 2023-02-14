@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2807324255932423508}
   - component: {fileID: 2807324255932423514}
   m_Layer: 0
-  m_Name: NavMeshSurface
+  m_Name: NavMeshSurfaceDeformable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.033333335
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 0}
 --- !u!114 &2807324255932423514

@@ -1,6 +1,7 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
+using Cinemachine;
 
 namespace Client {
     sealed class InitCamera : IEcsInitSystem
@@ -14,7 +15,7 @@ namespace Client {
             int entity = _world.Value.NewEntity();
             ref var CameraComponent = ref _cameraComponentPool.Value.Add(entity);
             CameraComponent.Camera = camera;
-            CameraComponent.Transform = camera.transform;
+            CameraComponent.VirtualCamera = GameObject.FindObjectOfType<CinemachineVirtualCameraPlug>().GetComponent<CinemachineVirtualCamera>();
 
             _state.Value.CameraEntity = entity;
         }

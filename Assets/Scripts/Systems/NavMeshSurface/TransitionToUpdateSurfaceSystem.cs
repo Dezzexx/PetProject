@@ -6,7 +6,8 @@ namespace Client {
     sealed class TransitionToUpdateSurfaceSystem : IEcsRunSystem {   
         readonly EcsFilterInject<Inc<TouchComponent>> _touchFilter = default;
         readonly EcsPoolInject<TouchComponent> _touchPool = default;
-        readonly EcsPoolInject<UpdatingNavMeshSurface> _updateNavMeshSurfaceEvent = default;
+        readonly EcsPoolInject<UpdateNavMeshSurfaceEvent> _updateNavMeshSurfaceEvent = default;
+        readonly EcsPoolInject<RuntimeClipper> _clipperPool = default;
 
         readonly EcsSharedInject<GameState> _state = default;
         readonly EcsWorldInject _world = default;
@@ -14,33 +15,10 @@ namespace Client {
         public void Run (EcsSystems systems) {
             foreach (var touchEntity in _touchFilter.Value) {
                 ref var touchComp = ref _touchPool.Value.Get(touchEntity);
-                
-                switch (touchComp.Phase)
-                {
-                    case TouchPhase.Began:
-                        ApplyUpdateComp();
-                        break;
+                ref var clipperComp = ref _clipperPool.Value.Get(_state.Value.ClipperEntity);
 
-                    case TouchPhase.Ended:
-                        DeleteUpdateComp();
-                        break;
-
-                    case TouchPhase.Canceled:
-                        DeleteUpdateComp();
-                        break;
-                    
-                    default:
-                        break;
-                }
+                clipperComp.Clipper.UpdateTouch(touchComp.Position, touchComp.Phase);
             }
-        }
-
-        private void ApplyUpdateComp() {
-            _updateNavMeshSurfaceEvent.Value.Add(_state.Value.NavMeshSurfaceEntity);
-        }
-
-        private void DeleteUpdateComp() {
-            _updateNavMeshSurfaceEvent.Value.Del(_state.Value.NavMeshSurfaceEntity);
         }
     }
 }

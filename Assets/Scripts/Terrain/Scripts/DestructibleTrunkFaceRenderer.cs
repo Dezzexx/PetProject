@@ -44,17 +44,6 @@ public class DestructibleTrunkFaceRenderer : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            byte[] bytes = renderTexture.ToTexture2D().EncodeToPNG();
-            System.IO.File.WriteAllBytes("F:/SavedScreen.bin", bytes);
-
-            bytes = renderTexture.ToTexture2D().GetRawTextureData();
-        }
-    }
-
     public void DrawBrushInTrunkSpace(Mesh mesh, Vector2 offset, Vector2 trunkSize, ClipType clipType)
     {
         int passIdx;

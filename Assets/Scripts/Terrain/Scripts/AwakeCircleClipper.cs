@@ -53,10 +53,6 @@ public class AwakeCircleClipper : MonoBehaviour, IClip
         radius = diameter / 2f;
     }
 
-    void Start()
-    {
-    }
-
     public Mesh GetMesh()
     {
         throw new System.NotImplementedException();

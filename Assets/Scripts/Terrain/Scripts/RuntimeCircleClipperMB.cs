@@ -1,14 +1,29 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 using Vector2i = ClipperLib.IntPoint;
 using Vector2f = UnityEngine.Vector2;
-using ClipperLib;
 
-public class RuntimeCircleClipper : MonoBehaviour, IClip
+using Client;
+using Leopotam.EcsLite;
+
+public class RuntimeCircleClipperMB : MonoBehaviour, IClip
 {
+#region ECS
+    private EcsWorld _world;
+    private GameState _state;
+    private EcsPool<UpdateNavMeshSurfaceEvent> _updateNavMeshSurfaceEvent = default;
+
+    public int _entity;
+
+    public void Init(EcsWorld world, GameState state, int entity)
+    {
+        _world = world;
+        _state = state;
+        _entity = entity;
+        _updateNavMeshSurfaceEvent = _world.GetPool<UpdateNavMeshSurfaceEvent>();
+    }
+#endregion
+
     public ClipType clipType = ClipType.Sub;
     private struct TouchLineOverlapCheck 
     {
@@ -137,42 +152,37 @@ public class RuntimeCircleClipper : MonoBehaviour, IClip
         mesh.MarkDynamic();
     }
 
-    void Update()
+    public void UpdateTouch(Vector2 touchPosition, TouchPhase touchPhase)
     {
-        UpdateTouch();
-    }
-
-    void UpdateTouch()
-    {
-        if (TouchUtility.Enabled && TouchUtility.TouchCount > 0)
+        switch (touchPhase)
         {
-            Touch touch = TouchUtility.GetTouch(0);
-            Vector2 touchPosition = touch.position;
-
-            touchPhase = touch.phase;
-            if (touch.phase == TouchPhase.Began)
-            {
+            case TouchPhase.Began:
                 currentTouchPoint = mainCamera.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, -cameraZPos));
 
                 Build(currentTouchPoint);
 
                 DestructibleTerrainManager.Instance.Clip(this, clipType);
 
-                previousTouchPoint = currentTouchPoint;            
-            }
-            else if (touch.phase == TouchPhase.Moved)
-            {
+                previousTouchPoint = currentTouchPoint;  
+                if (!_updateNavMeshSurfaceEvent.Has(_state.NavMeshSurfaceEntity)) _updateNavMeshSurfaceEvent.Add(_state.NavMeshSurfaceEntity);
+                break;   
+
+            case TouchPhase.Moved:
                 currentTouchPoint = mainCamera.ScreenToWorldPoint(new Vector3(touchPosition.x, touchPosition.y, -cameraZPos));
- 
+
                 if ((currentTouchPoint - previousTouchPoint).sqrMagnitude <= touchMoveDistance * touchMoveDistance)
                     return;
-               
+            
                 Build(previousTouchPoint, currentTouchPoint);
 
                 DestructibleTerrainManager.Instance.Clip(this, clipType);
 
                 previousTouchPoint = currentTouchPoint;
-            }
+                if (!_updateNavMeshSurfaceEvent.Has(_state.NavMeshSurfaceEntity)) _updateNavMeshSurfaceEvent.Add(_state.NavMeshSurfaceEntity);
+                break; 
+            
+            default:
+                break;
         }
     }
 

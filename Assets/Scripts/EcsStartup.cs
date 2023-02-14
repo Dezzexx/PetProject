@@ -53,6 +53,7 @@ namespace Client
                 // .Add(new DeformableObjectsInit())
                 .Add(new NavMeshSurfaceInit())
                 .Add(new UnitsInitSystem())
+                .Add(new RunTimeClipperInitSystem())
             ;
 
             _beforePlaySystems               
@@ -77,9 +78,10 @@ namespace Client
                 // .Add(new DeformMeshSystem())
                 .Add(new TransitionToUpdateSurfaceSystem())
                 .Add(new UpdateNavMeshSurfaceSystem())
+                // .Add(new FindFirstUnitSystem())
 
                 .Add(new WinCheckSystem())
-                .Add(new UnitAnimationSystem())
+                // .Add(new UnitAnimationSystem())
 
                 .Add(new LoseCheckSystem())
             ;
