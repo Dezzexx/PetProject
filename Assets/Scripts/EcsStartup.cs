@@ -30,6 +30,7 @@ namespace Client
 
         void Start () 
         {
+            Application.targetFrameRate = 60;
             World = new EcsWorld();
             GameState.Clear();
             _gameState = GameState.Initialize(this);
