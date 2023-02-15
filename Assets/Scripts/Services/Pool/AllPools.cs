@@ -5,7 +5,7 @@ public class AllPools : ScriptableObject
 {
 #region ObjectPools
     [Header("ObjectPool")]
-    public Pool UnitPool;
+    public Pool FriendlyUnitPool;
     public Pool DonutPool;
 #endregion
 

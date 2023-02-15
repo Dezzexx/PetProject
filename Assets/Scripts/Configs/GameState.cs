@@ -51,6 +51,7 @@ namespace Client
         public int CameraEntity;
         public int NavMeshSurfaceEntity;
         public int ClipperEntity;
+        public int UnitsHolderEntity;
         public const int NULL_ENTITY = -1;
 
 #endregion

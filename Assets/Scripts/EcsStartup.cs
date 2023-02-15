@@ -30,7 +30,7 @@ namespace Client
 
         void Start () 
         {
-            Application.targetFrameRate = 60;
+            // Application.targetFrameRate = 60;
             World = new EcsWorld();
             GameState.Clear();
             _gameState = GameState.Initialize(this);
@@ -46,7 +46,6 @@ namespace Client
             _initSystems
                 .Add(new InputInit())
                 .Add(new InitInterface())
-                .Add(new InitCamera())
                 .Add(new InitSounds())
                 .Add(new InitPools())
                 .Add(new VibrationInit())
@@ -54,6 +53,7 @@ namespace Client
                 // .Add(new DeformableObjectsInit())
                 .Add(new NavMeshSurfaceInit())
                 .Add(new UnitsInitSystem())
+                .Add(new InitCamera())
                 .Add(new RunTimeClipperInitSystem())
             ;
 
@@ -62,8 +62,6 @@ namespace Client
                 .Add(new SoundSystem())
                 .Add(new VibrationSystem())
                 .Add(new InputSystem())
-
-                .Add(new DamageSystem())
             ;
 
             _playSystems
@@ -75,11 +73,13 @@ namespace Client
                 
                 .Add(new UnitMoveSystem())
                 .Add(new UnitChangePathSystem())
+                .Add(new UnitAttackSystem())
+
+                .Add(new DamageSystem())
 
                 // .Add(new DeformMeshSystem())
                 .Add(new TransitionToUpdateSurfaceSystem())
                 .Add(new UpdateNavMeshSurfaceSystem())
-                // .Add(new FindFirstUnitSystem())
 
                 .Add(new WinCheckSystem())
                 // .Add(new UnitAnimationSystem())

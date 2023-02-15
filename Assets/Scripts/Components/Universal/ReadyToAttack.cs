@@ -1,5 +1,5 @@
 namespace Client {
-    struct FindFirstUnitEvent {
+    struct ReadyToAttack {
         // add your data here.
     }
 }

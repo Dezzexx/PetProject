@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.guciodevs.simple-min-max-slider": {
-      "version": "https://github.com/Adamcbrz/SimpleMinMaxSlider.git#upm",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "28db02378e9c4c44ebd1ea10a01f0c5558a6cf1f"
-    },
     "com.leopotam.ecslite": {
       "version": "https://github.com/Leopotam/ecslite.git",
       "depth": 0,
@@ -236,13 +229,6 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
-    },
-    "com.yasirkula.ingamedebugconsole": {
-      "version": "https://github.com/yasirkula/UnityIngameDebugConsole.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "2ee62e21eded65257454d14d545f5db7484743b0"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

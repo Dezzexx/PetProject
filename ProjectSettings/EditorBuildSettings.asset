@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/UIScene/UIScene.unity
-    guid: d7f7ef274c5a0504ab5d1abad1bb85e9
+    path: Assets/Scenes/ClipScene/ClipScene.unity
+    guid: abd64d7cb20e11349988c8c0fc900b77
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 365e23e6546909644bbf459a0f752777,
       type: 2}

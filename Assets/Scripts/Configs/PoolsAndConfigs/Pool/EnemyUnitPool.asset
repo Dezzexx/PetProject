@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21eb7ceb36292f5448933bf0d8933ec6, type: 3}
-  m_Name: GameConfig
+  m_Script: {fileID: 11500000, guid: 3b4ff52dffa929949bafceb6141523dc, type: 3}
+  m_Name: EnemyUnitPool
   m_EditorClassIdentifier: 
-  UnitSpawnCount: 12
+  Prefab: {fileID: 1723286628247724088, guid: d0160d06b3222114ba91ab4914583230, type: 3}

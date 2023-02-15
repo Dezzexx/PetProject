@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21eb7ceb36292f5448933bf0d8933ec6, type: 3}
-  m_Name: GameConfig
+  m_Script: {fileID: 11500000, guid: 013aa7dce77663f43b7e4aa2b246444a, type: 3}
+  m_Name: EnemyUnitParameterConfig
   m_EditorClassIdentifier: 
-  UnitSpawnCount: 12
+  Health: 10
+  Damage: 10

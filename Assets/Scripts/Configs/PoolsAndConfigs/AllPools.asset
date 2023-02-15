@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f672c81de67624a8bcc6cf94b6a0dc, type: 3}
   m_Name: AllPools
   m_EditorClassIdentifier: 
-  UnitPool: {fileID: 11400000, guid: b12abfbd0fed53043b7e5cb7cb79e385, type: 2}
+  FriendlyUnitPool: {fileID: 11400000, guid: b12abfbd0fed53043b7e5cb7cb79e385, type: 2}
+  EnemyUnitPool: {fileID: 11400000, guid: 7315a53c166215c4a87643c855f730cc, type: 2}
   DonutPool: {fileID: 11400000, guid: 4c7cf0884df683843bf1ea9fb167f5c0, type: 2}

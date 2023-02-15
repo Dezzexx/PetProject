@@ -7,6 +7,7 @@ namespace Client {
         readonly EcsFilterInject<Inc<UnitChangePathEvent, Unit>, Exc<Dead>> _unitFilter = default;
         readonly EcsPoolInject<Unit> _unitPool = default;
         readonly EcsPoolInject<UnitChangePathEvent> _changePathEvent = default;
+        readonly EcsPoolInject<ReadyToAttack> _readyToAttackPool = default;
 
         public void Run (EcsSystems systems) {
             foreach (var unitEntity in _unitFilter.Value) {
@@ -14,6 +15,9 @@ namespace Client {
                 ref var unitComp = ref _unitPool.Value.Get(unitEntity);
 
                 unitComp.NavMeshAgent.SetDestination(changePathEvent.NewDestination);
+                if (changePathEvent.IsDirectionToAttack) {
+                    _readyToAttackPool.Value.Add(unitEntity);
+                }
             }
         }
     }

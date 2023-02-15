@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 1723286628247724089}
   - component: {fileID: 3315950402895119804}
   - component: {fileID: 1316398424219326490}
+  - component: {fileID: 1778366642448152863}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: FriendlyUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,7 +95,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1723286628247724088}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -113,6 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entity: 0
+  UnitType: 0
+  UnitParameterConfig: {fileID: 11400000, guid: 04ce2620418cbab40b4ad7c02f82301e,
+    type: 2}
 --- !u!195 &1316398424219326490
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -135,3 +139,19 @@ NavMeshAgent:
   m_BaseOffset: 0.99999994
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!54 &1778366642448152863
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723286628247724088}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

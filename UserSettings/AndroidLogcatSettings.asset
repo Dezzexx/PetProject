@@ -2,22 +2,46 @@
     "m_SelectedDeviceId": "ff1795cd",
     "m_SelectedPackage": {
         "deviceId": "ff1795cd",
-        "name": "com.karimcastagnini.castlestorm",
-        "processId": 26540,
+        "name": "com.Dezzex.PetProject",
+        "processId": 14015,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "ff1795cd",
-            "name": "com.android.settings",
-            "processId": 27972,
+            "name": "com.karimcastagnini.castlestorm",
+            "processId": 26540,
+            "exited": true
+        },
+        {
+            "deviceId": "ff1795cd",
+            "name": "com.Dezzex.PetProject",
+            "processId": 9292,
+            "exited": true
+        },
+        {
+            "deviceId": "ff1795cd",
+            "name": "com.mi.android.globallauncher",
+            "processId": 12215,
             "exited": false
         },
         {
             "deviceId": "ff1795cd",
-            "name": "com.karimcastagnini.castlestorm",
-            "processId": 26540,
+            "name": "com.Dezzex.PetProject",
+            "processId": 10489,
+            "exited": true
+        },
+        {
+            "deviceId": "ff1795cd",
+            "name": "com.Dezzex.PetProject",
+            "processId": 11940,
+            "exited": true
+        },
+        {
+            "deviceId": "ff1795cd",
+            "name": "com.Dezzex.PetProject",
+            "processId": 14015,
             "exited": false
         }
     ],
