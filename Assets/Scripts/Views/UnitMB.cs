@@ -11,6 +11,7 @@ public class UnitMB : MonoBehaviour
     private EcsPool<Unit> _unitPool = default;
     private EcsPool<DamageEvent> _damageEvent = default;
     private EcsPool<Health> _healthPool = default;
+    private EcsPool<WinCheck> _winCheckPool = default;
 
     public int _entity;
 
@@ -23,12 +24,18 @@ public class UnitMB : MonoBehaviour
         _unitPool = _world.GetPool<Unit>();
         _healthPool = _world.GetPool<Health>();
         _damageEvent = _world.GetPool<DamageEvent>();
+        _winCheckPool = _world.GetPool<WinCheck>();
     }
 #endregion
 
     private void OnTriggerEnter(Collider other) {
         if (other.TryGetComponent<UnitMB>(out var unitMB)) {
             ApplyDamageEvent(UnitType, unitMB);
+        }
+
+        if (other.TryGetComponent<ChestMB>(out var chestMB)) {
+            chestMB.GetAnimator().SetBool("Opening", true);
+            _winCheckPool.Add(_world.NewEntity());
         }
     }
 

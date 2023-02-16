@@ -30,7 +30,7 @@ namespace Client {
             
             ref var navMeshSurfaceComp = ref _navMeshSurfaceComp.Value.Get(_state.Value.NavMeshSurfaceEntity);
 
-            for (int i = 0; i <= _state.Value.GameConfig.UnitSpawnCount; i++) {
+            for (int i = 0; i < _state.Value.GameConfig.UnitSpawnCount; i++) {
                 var unitEntity = _world.Value.NewEntity();
 
                 var unitMB = _state.Value.ActivePools.FriendlyUnitPool.GetFromPool().GetComponent<UnitMB>();

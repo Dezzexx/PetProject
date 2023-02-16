@@ -70,12 +70,12 @@ public class SettingsPanelBehaviourMB : MonoBehaviour
             //LightVibration();            
             if(!_wasClicked)
             {
-                _thisPanel.DOAnchorPosX(_activePos.x, _speed, false);
+                _thisPanel.DOAnchorPosY(_activePos.y, _speed, false);
                 _wasClicked = true;
             }
             else
             {
-                _thisPanel.DOAnchorPosX(_startPos.x, _speed, false);
+                _thisPanel.DOAnchorPosY(_startPos.y, _speed, false);
                 _wasClicked = false;
             }
         }

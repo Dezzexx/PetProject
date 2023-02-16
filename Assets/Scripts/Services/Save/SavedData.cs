@@ -28,7 +28,7 @@ namespace Saver
 
         // --------------------------------------
 
-        public int PlayerResourceValue = 1000;        //сколько денег у игрока
+        public int PlayerResourceValue = 0;        //сколько денег у игрока
         public int PlayerLevelScore = 1;        //какого уровня игрок
         public int PlayerGrenade = 1;           //сколько гранат у игрока
         public int PlayerPaintScore;        //сколько краски у игрока

@@ -69,12 +69,6 @@ public class CanvasBehaviourMB : MonoBehaviour
         interfaceComponent.LosePanelBehaviour.GetHolderLose().gameObject.SetActive(true);
     }
 
-    public void OpenCloseStorePanel()
-    {
-        GeneralPanel.SetActive(!GeneralPanel.activeSelf);
-        InGamePanel.SetActive(!InGamePanel.activeSelf);
-    }
-
     public void DeactivateAllPanels()
     {
         ref var interfaceComponent = ref _interfacePool.Get(_state.InterfaceEntity);

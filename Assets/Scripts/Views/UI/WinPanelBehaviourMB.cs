@@ -5,6 +5,7 @@ using Leopotam.EcsLite;
 using Client;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class WinPanelBehaviourMB : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class WinPanelBehaviourMB : MonoBehaviour
 
     [SerializeField] private Transform _target;
     [SerializeField] private Transform _holderWin;
+    [SerializeField] private Text _rewardText;
+    [SerializeField] private GameObject _leftConfetti;
+    [SerializeField] private GameObject _rigthConfetti;
     
 
     public void Init(EcsWorld world, GameState state)
@@ -39,15 +43,15 @@ public class WinPanelBehaviourMB : MonoBehaviour
     private IEnumerator StartWin(int value)
     {
         yield return new WaitForSeconds(value);
-        // _leftConfetti.gameObject.SetActive(true);
-        // _rigthConfetti.gameObject.SetActive(true);
-        // _state.GameMode = GameMode.win;
         _holderWin.gameObject.SetActive(true);
         _holderWin.transform.DOMove(_target.position, 1, false);
     }
 
-    public Transform GetHolderWin()
-    {
+    public Transform GetHolderWin() {
         return _holderWin;
+    }
+
+    public Text GetRewardText() {
+        return _rewardText;
     }
 }

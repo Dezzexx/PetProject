@@ -12,13 +12,17 @@ public class DestructibleTerrainManager
     {
         get
         {
-            if (instance == null)
+            if (instance is null)
             {
                 instance = new DestructibleTerrainManager();
             }
 
             return instance;
         }
+    }
+
+    public static void Clear() {
+        instance = null;
     }
 
     protected DestructibleTerrainManager()

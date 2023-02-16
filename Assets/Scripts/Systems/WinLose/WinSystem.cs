@@ -18,8 +18,10 @@ namespace Client {
         // Text CountHelicopter; 
         // Text CountTruck;
         // Text CountGigant;
+        private int _reward = 500;
+        private int entityEvent = GameState.NULL_ENTITY;
 
-        int entityEvent = GameState.NULL_ENTITY;
+
         public void Run (EcsSystems systems) 
         {
             foreach (var evnt in _winFilter.Value)
@@ -37,7 +39,10 @@ namespace Client {
                 // _state.Value.Level++;
 
                 interfaceComponent.WinPanelBehaviour.StartWinEvent();
-                _state.Value.PlayerResourceValue += 200;
+                _state.Value.PlayerResourceValue += _reward;
+                // сделать систему на апдейт значений UI
+                interfaceComponent.InGamePanelBehaviour.UpdateMoneyValue(_state.Value.PlayerResourceValue);
+                interfaceComponent.WinPanelBehaviour.GetRewardText().text = "+ " + _reward.ToString();
 
 
                 _state.Value.Save();

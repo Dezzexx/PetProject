@@ -10,7 +10,7 @@ namespace Client {
         readonly EcsPoolInject<View> _viewPool = default;
         readonly EcsPoolInject<AnimationSwitchEvent> _animationSwitchEvent = default;
         readonly EcsPoolInject<WinEvent> _winPool = default;
-        float waitToStart = 1f;
+        float waitToStart = 3.5f;
 
         public void Run (EcsSystems systems) 
         {

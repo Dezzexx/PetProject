@@ -14,8 +14,10 @@ namespace Client {
         readonly EcsPoolInject<UnitChangePathEvent> _changePathEvent = default;
         readonly EcsPoolInject<NavMeshSurfaceComp> _navMeshSurfacePool = default;
         readonly EcsPoolInject<AnimationSwitchEvent> _animationSwitchEvent = default;
+        readonly EcsPoolInject<LoseCheck> _loseCheckPool = default;
 
         readonly EcsSharedInject<GameState> _state = default;
+        readonly EcsWorldInject _world = default;
 
         private Vector3 _randomPosition;
         private int _unitEntity = GameState.NULL_ENTITY;
@@ -64,6 +66,9 @@ namespace Client {
                 if (!navMeshSurfaceComp.DestinationPoints[(int)unitComp.UnitDestinationPoint + 1].GetComponent<UnitDestinationPointMB>().IsAttackPoint) {
                     _readyToAttackPool.Value.Del(_unitEntity);
                 }
+            }
+            else {
+                _loseCheckPool.Value.Add(_world.Value.NewEntity());
             }
         }
     }

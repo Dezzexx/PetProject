@@ -45,7 +45,6 @@ public class DestructibleTrunk : MonoBehaviour, IDestructible
         height = blockSize * resolutionY;
         blockSizeScaled = (int64)(blockSize * VectorEx.float2int64);
         renderer = GetComponent<DestructibleTrunkFaceRenderer>(); 
-
     
         Initialize();
     }

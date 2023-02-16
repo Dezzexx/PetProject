@@ -28,6 +28,9 @@ namespace Client
         public DeformableObjectsConfig DeformableObjectsConfig;
 #endregion
 
+        private void Awake() {
+            DestructibleTerrainManager.Clear();
+        }
         void Start () 
         {
             // Application.targetFrameRate = 60;

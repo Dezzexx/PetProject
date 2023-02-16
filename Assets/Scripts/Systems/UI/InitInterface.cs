@@ -47,9 +47,6 @@ namespace Client
             generalPanelBehaviourMB.Init(_world.Value, _state.Value);
             interfaceComp.GenaralPanelBehaviourMB = generalPanelBehaviourMB;
 
-            // interfaceComp.HealthbarBehaviour = GameObject.FindObjectOfType<HealthbarMB>();
-            // interfaceComp.HealthbarBehaviour.Init(_world.Value, _state.Value);
-            // interfaceComp.HealthbarBehaviour.GetHolderHealhbar().gameObject.SetActive(!interfaceComp.HealthbarBehaviour.GetHolderHealhbar().gameObject.activeSelf);
             //методы для старта
             interfaceComp.CanvasBehaviour.OpenBeforePlayPanels();
         }
