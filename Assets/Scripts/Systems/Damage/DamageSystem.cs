@@ -1,8 +1,6 @@
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine;
-using System.Collections.Generic;
-using System;
 
 namespace Client {
     sealed class DamageSystem : IEcsRunSystem {   
@@ -26,6 +24,8 @@ namespace Client {
         
         private int _entityEvent = GameState.NULL_ENTITY;
         private int _entityTarget = GameState.NULL_ENTITY;  
+
+        private RaycastHit _hit;
 
         public void Run (EcsSystems systems) {
             foreach (var entity in _filterDamage.Value)
@@ -67,6 +67,7 @@ namespace Client {
 
             var unitEntity = GameState.NULL_ENTITY;
             UnitMB unitMB = null;
+            Transform spot = null;
 
             switch (unitComp.UnitType)
             {
@@ -76,6 +77,7 @@ namespace Client {
                     unitsHolderComp.FriendlyUnitsHolder.Remove(unitMB);
                     _state.Value.ActivePools.FriendlyUnitPool.ReturnToPool(viewComp.Transform.gameObject);
                     _cameraPool.Value.Get(_state.Value.CameraEntity).TargetGroup.RemoveMember(viewComp.Transform);
+                    spot = _state.Value.ActivePools.BlueSpotPool.GetFromPool().transform;
                     viewComp.Transform.gameObject.SetActive(false);
                     break;
                 
@@ -83,11 +85,20 @@ namespace Client {
                     unitEntity = unitComp.UnitMB._entity;
                     unitMB = unitsHolderComp.EnemyUnitsHolder.Find(x => x._entity == unitEntity);
                     unitsHolderComp.EnemyUnitsHolder.Remove(unitMB);
+                    spot = _state.Value.ActivePools.RedSpotPool.GetFromPool().transform;
                     GameObject.Destroy(viewComp.Transform.gameObject);
                     break;
 
                 default:
                     break;
+            }
+            if (Physics.Raycast(viewComp.Transform.position, Vector3.forward, out _hit, 2f, _state.Value.SurfaceMask)) {
+                var randomDivider = Random.Range(3.5f, 5f);
+                var randomOffset = new Vector3(0, 0, -Random.Range(0.01f, 0.05f));
+
+                spot.transform.position = _hit.point + randomOffset;
+                spot.transform.rotation = Quaternion.Euler(270, 0, 0);
+                spot.transform.localScale = spot.transform.localScale / randomDivider;
             }
 
             _deadPool.Value.Add(_entityTarget);

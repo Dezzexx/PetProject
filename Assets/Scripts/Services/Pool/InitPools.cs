@@ -9,7 +9,8 @@ namespace Client
         readonly EcsSharedInject<GameState> _state;
 
         private int _friendlyUnitInitCount = 50;
-        private int _donutCounter = 150;
+        // private int _donutCounter = 150;
+        private int _spotCounter = 50;
 
 #region PoolsValueCount
         
@@ -22,7 +23,9 @@ namespace Client
             var spawnPoint = new Vector3(0, 0, 500f);
 
             _state.Value.ActivePools.FriendlyUnitPool = new Pool(_state.Value.AllPools.FriendlyUnitPool.Prefab, spawnPoint, _friendlyUnitInitCount, parentName: "FriendlyUnitPool");      
-            _state.Value.ActivePools.DonutPool = new Pool(_state.Value.AllPools.DonutPool.Prefab, spawnPoint, _donutCounter, parentName: "DonutPool");      
+            // _state.Value.ActivePools.DonutPool = new Pool(_state.Value.AllPools.DonutPool.Prefab, spawnPoint, _donutCounter, parentName: "DonutPool");      
+            _state.Value.ActivePools.BlueSpotPool = new Pool(_state.Value.AllPools.BlueSpotPool.Prefab, spawnPoint, _spotCounter, parentName: "BlueSpot");
+            _state.Value.ActivePools.RedSpotPool = new Pool(_state.Value.AllPools.RedSpotPool.Prefab, spawnPoint, _spotCounter, parentName: "RedSpot");
         }
     }
 }

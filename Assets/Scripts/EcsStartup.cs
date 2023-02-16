@@ -15,7 +15,7 @@ namespace Client
         private GameState _gameState;
 
 #region Masks
-        public LayerMask DeformableMask;
+        public LayerMask SurfaceMask;
 #endregion
 
 #region AllPools
@@ -33,7 +33,7 @@ namespace Client
         }
         void Start () 
         {
-            // Application.targetFrameRate = 60;
+            Application.targetFrameRate = 300;
             World = new EcsWorld();
             GameState.Clear();
             _gameState = GameState.Initialize(this);
@@ -74,7 +74,7 @@ namespace Client
                 
                 .Add(new CreateEffectEventSystem())
                 
-                .Add(new UnitMoveSystem())
+                .Add(new UnitMoveSystem())                
                 .Add(new UnitAttackSystem())
                 .Add(new UnitAnimationSystem())
                 .Add(new UnitChangePathSystem())

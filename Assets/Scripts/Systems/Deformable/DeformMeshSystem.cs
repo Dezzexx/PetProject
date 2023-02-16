@@ -25,15 +25,15 @@ namespace Client {
                 ref var touchComp = ref _touchPool.Value.Get(touchEntity);
                 
 
-                switch (touchComp.Phase)
-                {
-                    case TouchPhase.Began:
-                        DeformMesh(cameraComp.Camera, touchComp.Position, _state.Value.DeformableMask);
-                        break;
+                // switch (touchComp.Phase)
+                // {
+                //     case TouchPhase.Began:
+                //         DeformMesh(cameraComp.Camera, touchComp.Position, _state.Value.DeformableMask);
+                //         break;
 
-                    case TouchPhase.Moved:
-                        DeformMesh(cameraComp.Camera, touchComp.Position, _state.Value.DeformableMask);
-                        break;
+                //     case TouchPhase.Moved:
+                //         DeformMesh(cameraComp.Camera, touchComp.Position, _state.Value.DeformableMask);
+                //         break;
 
                     // case TouchPhase.Stationary:
                     //     break;
@@ -44,9 +44,9 @@ namespace Client {
                     // case TouchPhase.Canceled:
                     //     break;
                     
-                    default:
-                        break;
-                }
+                //     default:
+                //         break;
+                // }
             }
         }
 

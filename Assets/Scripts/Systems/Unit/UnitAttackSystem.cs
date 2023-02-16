@@ -51,7 +51,7 @@ namespace Client {
             if (units.Count is not 0) {
                 var randomEntity = Random.Range(units[0]._entity, units[units.Count - 1]._entity);
                 if (!_deadPool.Value.Has(randomEntity) && _readyToAttackPool.Value.Has(randomEntity)) {
-                    if (unitComp.UnitType is UnitTypes.EnemyUnit && !_animationSwitchEvent.Value.Has(_unitEntity)) {
+                    if (unitComp.UnitType is UnitTypes.EnemyUnit) {
                         _animationSwitchEvent.Value.Add(_unitEntity).AnimationSwitcher = AnimationSwitchEvent.AnimationType.Run;
                     }
                     _randomPosition = _viewPool.Value.Get(randomEntity).Transform.position;

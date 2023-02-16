@@ -24,7 +24,7 @@ namespace Client
 #endregion
 
 #region Mask
-        public LayerMask DeformableMask;
+        public LayerMask SurfaceMask;
 #endregion
 
 #region Configs
@@ -65,7 +65,7 @@ namespace Client
             GameConfig = ecsStartup.GameConfig;
             DeformableObjectsConfig = ecsStartup.DeformableObjectsConfig;
 
-            DeformableMask = ecsStartup.DeformableMask; 
+            SurfaceMask = ecsStartup.SurfaceMask; 
 
             Load();
         }

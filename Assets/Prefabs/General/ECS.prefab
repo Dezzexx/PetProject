@@ -48,7 +48,7 @@ MonoBehaviour:
     GameMode: 0
     Raycaster: {fileID: 0}
     EventSystem: {fileID: 0}
-    DeformableMask:
+    SurfaceMask:
       serializedVersion: 2
       m_Bits: 0
     SoundConfig: {fileID: 0}
@@ -67,10 +67,13 @@ MonoBehaviour:
     SoundsEntity: 0
     VibrationEntity: 0
     CameraEntity: 0
+    NavMeshSurfaceEntity: 0
+    ClipperEntity: 0
+    UnitsHolderEntity: 0
     LevelProgressIndex: 0
-  DeformableMask:
+  SurfaceMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 64
   AllPools: {fileID: 11400000, guid: eb035b01f15eaa444aa696392c0e2106, type: 2}
   SoundConfig: {fileID: 11400000, guid: 92c30ff534048854496fc6f3d58b2ee0, type: 2}
   GameConfig: {fileID: 11400000, guid: ba62ab248be65b542ba82e1799340240, type: 2}

@@ -7,6 +7,8 @@ public class AllPools : ScriptableObject
     [Header("ObjectPool")]
     public Pool FriendlyUnitPool;
     public Pool DonutPool;
+    public Pool BlueSpotPool;
+    public Pool RedSpotPool;
 #endregion
 
 // #region EffectPools
