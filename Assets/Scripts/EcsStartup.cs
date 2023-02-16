@@ -72,8 +72,9 @@ namespace Client
                 .Add(new CreateEffectEventSystem())
                 
                 .Add(new UnitMoveSystem())
-                .Add(new UnitChangePathSystem())
                 .Add(new UnitAttackSystem())
+                .Add(new UnitAnimationSystem())
+                .Add(new UnitChangePathSystem())
 
                 .Add(new DamageSystem())
 
@@ -82,8 +83,6 @@ namespace Client
                 .Add(new UpdateNavMeshSurfaceSystem())
 
                 .Add(new WinCheckSystem())
-                // .Add(new UnitAnimationSystem())
-
                 .Add(new LoseCheckSystem())
             ;
 
@@ -111,7 +110,6 @@ namespace Client
                 .DelHere<ClickEvent>()
                 .DelHere<FailClickEvent>()
                 .DelHere<BuyEvent>()
-                .DelHere<UnitChangePathEvent>()
                 ;
 
             _winSystems

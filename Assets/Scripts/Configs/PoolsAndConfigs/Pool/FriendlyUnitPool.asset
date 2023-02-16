@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b4ff52dffa929949bafceb6141523dc, type: 3}
   m_Name: FriendlyUnitPool
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 1723286628247724088, guid: 955e175b786a05541b0bc21dbc4eca13, type: 3}
+  Prefab: {fileID: 6874097357249897811, guid: 77e233ebd3c40c6489933f5868d0f895, type: 3}

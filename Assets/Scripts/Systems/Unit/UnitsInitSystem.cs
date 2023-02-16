@@ -12,6 +12,8 @@ namespace Client {
         readonly EcsPoolInject<Health> _healthPool = default;
         readonly EcsPoolInject<NavMeshSurfaceComp> _navMeshSurfaceComp = default;
         readonly EcsPoolInject<UnitsHolder> _unitsHolderPool = default;
+        readonly EcsPoolInject<ReadyToAttack> _readyToAttackPool = default;
+        readonly EcsPoolInject<UnitAnimator> _unitAnimatorPool = default;
 
         readonly EcsSharedInject<GameState> _state = default;
         readonly EcsWorldInject _world = default;
@@ -43,7 +45,6 @@ namespace Client {
 
                 ref var viewComp = ref _viewPool.Value.Add(unitEntity);
                 viewComp.Transform = unitMB.transform;
-                viewComp.Transform.rotation = unitSpawnPointTransform.rotation;
                 
                 unitComp.NavMeshAgent.Warp(unitSpawnPointTransform.position + randomSpawnSpread);
                 unitComp.NavMeshAgent.SetDestination(navMeshSurfaceComp.DestinationPoints[0].transform.position);
@@ -76,7 +77,11 @@ namespace Client {
                 healthComp.MaxAmount = enemyUnitsHolderMB[i].UnitParameterConfig.Health;
                 healthComp.CurrentAmount = healthComp.MaxAmount;
 
+                _unitAnimatorPool.Value.Add(unitEntity).UnityAnimator = enemyUnitsHolderMB[i].GetComponent<Animator>();
+
                 unitsHolderComp.EnemyUnitsHolder.Add(enemyUnitsHolderMB[i]);
+
+                _readyToAttackPool.Value.Add(unitEntity);
             }
         }
     }

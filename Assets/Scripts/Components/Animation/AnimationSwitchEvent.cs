@@ -2,7 +2,7 @@ namespace Client {
     struct AnimationSwitchEvent {
         public enum AnimationType
         {
-            Idle, StayShoot, Win, DefaultRun
+            Run
         }
         public AnimationType AnimationSwitcher;
     }
