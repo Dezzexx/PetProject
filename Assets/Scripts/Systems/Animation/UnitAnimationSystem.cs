@@ -14,13 +14,13 @@ namespace Client {
                 switch (animationSwitchEventComp.AnimationSwitcher)
                 {
                     case AnimationSwitchEvent.AnimationType.Run:
-                        animatorComp.UnityAnimator.SetBool("Run", true);
+                        animatorComp.UnityAnimator.Play("Run");
                         break;
                     
                     default:
                         break;
                 }
-                _animationSwitchEventPool.Value.Del(animationSwitchEventEntity);
+                // _animationSwitchEventPool.Value.Del(animationSwitchEventEntity);
             }
         }
     }

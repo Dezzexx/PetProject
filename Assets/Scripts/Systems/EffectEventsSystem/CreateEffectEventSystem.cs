@@ -31,8 +31,14 @@ namespace Client
 
                 switch (createEffectEventComponent.EffectType)
                 {
+                    case EffectType.UnitFightEffect:
+                        InvokeUnitFightEffect(createEffectEventComponent);
+                        break;
                     
-                    
+                    case EffectType.DiamondPoofEffect:
+                        InvokeDiamondPoofEffect(createEffectEventComponent);
+                        break;
+
                     default:
                         Debug.LogWarning("Income unknown EffectType!");
                         break;
@@ -42,24 +48,39 @@ namespace Client
             }
         }
 
-        // private void InvokeUnitShootEffect(ref CreateEffectEvent createEffectEventComponent)
-        // {
-        //     var shootEffect = _state.Value.ActivePools.UnitShootEffectPool.GetFromPool();
+        private void InvokeDiamondPoofEffect(CreateEffectEvent createEffectEventComponent)
+        {
+            var poofEffect = _state.Value.ActivePools.DiamondPoofEffectPool.GetFromPool();
 
-        //     shootEffect.transform.position = createEffectEventComponent.SpawnPoint;
-        //     shootEffect.transform.rotation = Quaternion.LookRotation(createEffectEventComponent.Direction);
+            poofEffect.transform.position = createEffectEventComponent.SpawnPoint;
 
-        //     if (shootEffect.TryGetComponent<ParticleSystem>(out var shootEffectPatricle))
-        //     {
-        //         shootEffectPatricle.Play();
-        //     }
-        //     else
-        //     {
-        //         Debug.LogWarning("ShootEffect object from UnitShootEffectPool haven't ParticleSystem!");
-        //     }
-        //     _state.Value.ActivePools.UnitShootEffectPool.ReturnToPool(shootEffect);
-        // }
-        
+            if (poofEffect.TryGetComponent<ParticleSystem>(out var poofEffectParticle))
+            {
+                poofEffectParticle.Play();
+            }
+            else
+            {
+                Debug.LogWarning("PoofEffect object from DiamondPoofEffectPool haven't ParticleSystem!");
+            }
+            _state.Value.ActivePools.DiamondPoofEffectPool.ReturnToPool(poofEffect);
+        }
+
+        private void InvokeUnitFightEffect(CreateEffectEvent createEffectEventComponent)
+        {
+            var fightEffect = _state.Value.ActivePools.UnitFightEffectPool.GetFromPool();
+
+            fightEffect.transform.position = createEffectEventComponent.SpawnPoint;
+
+            if (fightEffect.TryGetComponent<ParticleSystem>(out var fightEffectParticle))
+            {
+                fightEffectParticle.Play();
+            }
+            else
+            {
+                Debug.LogWarning("FightEffect object from UnitFightEffectPool haven't ParticleSystem!");
+            }
+            _state.Value.ActivePools.UnitFightEffectPool.ReturnToPool(fightEffect);
+        }
 
         private void DeleteEvent()
         {

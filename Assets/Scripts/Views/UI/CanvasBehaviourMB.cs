@@ -14,6 +14,7 @@ public class CanvasBehaviourMB : MonoBehaviour
     private GameState _state;
     private EcsPool<ClickEvent> _clickPool;
     private EcsPool<InterfaceComponent> _interfacePool = default;
+    private EcsPool<VibrationEvent> _vibrationEvent = default;
 
     public void Init(EcsWorld world, GameState state)
     {
@@ -22,6 +23,7 @@ public class CanvasBehaviourMB : MonoBehaviour
         _state = state;
         _clickPool = _world.GetPool<ClickEvent>();
         _interfacePool = _world.GetPool<InterfaceComponent>();
+        _vibrationEvent = _world.GetPool<VibrationEvent>();
     }
     #endregion
 
@@ -43,6 +45,9 @@ public class CanvasBehaviourMB : MonoBehaviour
     public void StartButton()
     {
         ref var interfaceComponent = ref _interfacePool.Get(_state.InterfaceEntity);
+
+        ref var vibrationComp = ref _vibrationEvent.Add(_world.NewEntity());
+        vibrationComp.Vibration = VibrationEvent.VibrationType.HeavyImpact;
 
         // interfaceComponent.HealthbarBehaviour.GetHolderHealhbar().gameObject.SetActive(!interfaceComponent.HealthbarBehaviour.GetHolderHealhbar().gameObject.activeSelf);
         _state.GameMode = GameMode.play;

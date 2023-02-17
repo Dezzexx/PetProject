@@ -53,11 +53,11 @@ namespace Client
                 .Add(new InitPools())
                 .Add(new VibrationInit())
                 
-                // .Add(new DeformableObjectsInit())
                 .Add(new NavMeshSurfaceInit())
                 .Add(new UnitsInitSystem())
                 .Add(new InitCamera())
                 .Add(new RunTimeClipperInitSystem())
+                .Add(new ChestInitSystem())
             ;
 
             _beforePlaySystems               
@@ -81,9 +81,10 @@ namespace Client
 
                 .Add(new DamageSystem())
 
-                // .Add(new DeformMeshSystem())
                 .Add(new TransitionToUpdateSurfaceSystem())
-                .Add(new UpdateNavMeshSurfaceSystem())
+                .Add(new UpdateNavMeshSurfaceSystem())    
+
+                .Add (new ChestOpeningSystem())            
 
                 .Add(new WinCheckSystem())
                 .Add(new LoseCheckSystem())
@@ -113,6 +114,7 @@ namespace Client
                 .DelHere<ClickEvent>()
                 .DelHere<FailClickEvent>()
                 .DelHere<BuyEvent>()
+                .DelHere<AnimationSwitchEvent>()
                 ;
 
             _winSystems

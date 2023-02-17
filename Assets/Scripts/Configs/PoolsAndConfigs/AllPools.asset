@@ -16,3 +16,7 @@ MonoBehaviour:
   DonutPool: {fileID: 11400000, guid: 4c7cf0884df683843bf1ea9fb167f5c0, type: 2}
   BlueSpotPool: {fileID: 11400000, guid: 86e47a7f232761846a031d8c47f8da24, type: 2}
   RedSpotPool: {fileID: 11400000, guid: 8d0ad8021b6590147bc5e695ebf3c8e8, type: 2}
+  UnitFightEffectPool: {fileID: 11400000, guid: a3cadb4088b5fb5468ac3c1b057fb472,
+    type: 2}
+  DiamondPoofEffectPool: {fileID: 11400000, guid: 2e891d6105562fc439e2203819d10e75,
+    type: 2}

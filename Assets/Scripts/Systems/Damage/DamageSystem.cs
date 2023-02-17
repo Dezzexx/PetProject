@@ -17,6 +17,7 @@ namespace Client {
         readonly EcsPoolInject<Dead> _deadPool = default;
         readonly EcsPoolInject<CameraComponent> _cameraPool = default;
         readonly EcsPoolInject<CreateEffectEvent> _createEffectEventPool = default;
+        readonly EcsPoolInject<VibrationEvent> _vibrationEvent = default;
 
         readonly EcsSharedInject<GameState> _state = default;
         readonly EcsWorldInject _world = default;
@@ -26,6 +27,7 @@ namespace Client {
         private int _entityTarget = GameState.NULL_ENTITY;  
 
         private RaycastHit _hit;
+        private Vector3 _offsetUnitFightPosition = new Vector3(0, 0, -0.3f);
 
         public void Run (EcsSystems systems) {
             foreach (var entity in _filterDamage.Value)
@@ -53,6 +55,9 @@ namespace Client {
             if (!_healthPool.Value.Has(_entityTarget)) return;
             ref var healthComp = ref _healthPool.Value.Get(_entityTarget);
             healthComp.CurrentAmount -= damageAmount;
+
+            ref var viewComp = ref _viewPool.Value.Get(_entityTarget);
+            CreateParticleEffect(EffectType.UnitFightEffect, viewComp.Transform.position + _offsetUnitFightPosition);
 
             if (healthComp.CurrentAmount <= 0) {
                 DestroyUnit();
@@ -101,8 +106,15 @@ namespace Client {
                 spot.transform.localScale = spot.transform.localScale / randomDivider;
             }
 
+            ref var vibrationComp = ref _vibrationEvent.Value.Add(_world.Value.NewEntity());
+            vibrationComp.Vibration = VibrationEvent.VibrationType.HeavyImpact;
+
             _deadPool.Value.Add(_entityTarget);
             _viewPool.Value.Del(_entityTarget);
+        }
+
+        private void CreateParticleEffect(EffectType effectType, Vector3 effectSpawnPoint) {
+            _createEffectEventPool.Value.Add(_world.Value.NewEntity()).Invoke(effectType, effectSpawnPoint, Vector3.zero);
         }
 
         private void DeleteEvent() {

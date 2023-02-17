@@ -10,17 +10,17 @@ namespace Client {
         readonly EcsPoolInject<View> _viewPool = default;
         readonly EcsPoolInject<AnimationSwitchEvent> _animationSwitchEvent = default;
         readonly EcsPoolInject<WinEvent> _winPool = default;
-        float waitToStart = 3.5f;
+        private float _waitToStart = 4f;
 
         public void Run (EcsSystems systems) 
         {
             foreach (var winCheckEntity in _winFilter.Value)
             {
-                if (waitToStart > 0)
-                    waitToStart -= Time.deltaTime;
+                if (_waitToStart > 0)
+                    _waitToStart -= Time.deltaTime;
                 else
                 {
-                    waitToStart = 0;
+                    _waitToStart = 0;
                     _state.Value.GameMode = GameMode.win;                    
                     _winPool.Value.Add(_world.Value.NewEntity());
 

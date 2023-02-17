@@ -11,7 +11,8 @@ public class AllPools : ScriptableObject
     public Pool RedSpotPool;
 #endregion
 
-// #region EffectPools
-
-// #endregion
+#region EffectPools
+    public Pool UnitFightEffectPool;
+    public Pool DiamondPoofEffectPool;
+#endregion
 }

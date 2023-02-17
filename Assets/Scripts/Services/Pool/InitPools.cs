@@ -11,6 +11,8 @@ namespace Client
         private int _friendlyUnitInitCount = 50;
         // private int _donutCounter = 150;
         private int _spotCounter = 50;
+        private int _unitFightEffectCounter = 50;
+        private int _diamondPoofEffectCounter = 2;
 
 #region PoolsValueCount
         
@@ -26,6 +28,8 @@ namespace Client
             // _state.Value.ActivePools.DonutPool = new Pool(_state.Value.AllPools.DonutPool.Prefab, spawnPoint, _donutCounter, parentName: "DonutPool");      
             _state.Value.ActivePools.BlueSpotPool = new Pool(_state.Value.AllPools.BlueSpotPool.Prefab, spawnPoint, _spotCounter, parentName: "BlueSpot");
             _state.Value.ActivePools.RedSpotPool = new Pool(_state.Value.AllPools.RedSpotPool.Prefab, spawnPoint, _spotCounter, parentName: "RedSpot");
+            _state.Value.ActivePools.UnitFightEffectPool = new Pool(_state.Value.AllPools.UnitFightEffectPool.Prefab, spawnPoint, _unitFightEffectCounter, parentName: "UnitFightEffect");
+            _state.Value.ActivePools.DiamondPoofEffectPool = new Pool(_state.Value.AllPools.DiamondPoofEffectPool.Prefab, spawnPoint, _diamondPoofEffectCounter, parentName: "DiamondPoofEffect");
         }
     }
 }

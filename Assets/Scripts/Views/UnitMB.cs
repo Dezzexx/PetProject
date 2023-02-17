@@ -12,6 +12,7 @@ public class UnitMB : MonoBehaviour
     private EcsPool<DamageEvent> _damageEvent = default;
     private EcsPool<Health> _healthPool = default;
     private EcsPool<WinCheck> _winCheckPool = default;
+    private EcsPool<Opening> _openingPool = default;
 
     public int _entity;
 
@@ -25,6 +26,7 @@ public class UnitMB : MonoBehaviour
         _healthPool = _world.GetPool<Health>();
         _damageEvent = _world.GetPool<DamageEvent>();
         _winCheckPool = _world.GetPool<WinCheck>();
+        _openingPool = _world.GetPool<Opening>();
     }
 #endregion
 
@@ -33,8 +35,9 @@ public class UnitMB : MonoBehaviour
             ApplyDamageEvent(UnitType, unitMB);
         }
 
+        // перенести в ецс к сундуку
         if (other.TryGetComponent<ChestMB>(out var chestMB)) {
-            chestMB.GetAnimator().SetBool("Opening", true);
+            if (!_openingPool.Has(chestMB._entity)) _openingPool.Add(chestMB._entity);
             _winCheckPool.Add(_world.NewEntity());
         }
     }
